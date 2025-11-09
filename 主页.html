@@ -1,0 +1,185 @@
+<style>
+        h1{
+            color:red;
+            text-align:center;
+        }
+
+</style>
+<h1>共和国官方网站主页</h1>
+<!--时间显示代码:-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>实时时间</title>
+    <style>
+        /* 简单美化（可选） */
+        .time {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 50px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 显示时间的容器 -->
+    <div class="time" id="realTime"></div>
+
+    <script>
+        // 定义更新时间的函数
+        function updateTime() {
+            // 获取当前时间
+            let now = new Date();
+            // 格式化：年-月-日 时:分:秒（补0确保两位数）
+            let year = now.getFullYear();
+            let month = addZero(now.getMonth() + 1); // 月份从0开始，需+1
+            let day = addZero(now.getDate());
+            let hour = addZero(now.getHours());
+            let minute = addZero(now.getMinutes());
+            let second = addZero(now.getSeconds());
+
+            // 拼接时间字符串
+            let timeStr = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
+            // 显示到页面
+            document.getElementById("realTime").innerText = timeStr;
+        }
+
+        // 辅助函数：小于10的数字补0（如9→09）
+        function addZero(num) {
+            return num < 10 ? "0" + num : num;
+        }
+
+        // 页面加载时立即显示时间，之后每秒更新一次
+        updateTime();
+        setInterval(updateTime, 1000); // 1000毫秒=1秒
+    </script>
+</body>
+</html>
+<!--以上全是时间显示(按秒)-->
+<img src="D:\0\网站配置文件all\html原文件\未标题-1.png" alt="加载失败了呢...反正就是用来加载以后会有的东西了啦..." width="500">
+ <marquee style="color:blue"><i>这是一个不知道写什么的滚动文本.以后想到什么写什么...</marquee></i>
+<a href="https://www.bilibili.com/video/BV1GJ411x7h7/?spm_id_from=333.337.search-card.all.click&vd_source=b4354bdbf6c44435ba0e7950a58f867e">共和国公民福利:点击领取10000金圆券 | 线上领取点</a>
+<style>
+		h6{
+			color=red;
+			text-align:center;
+		}
+		
+		
+</style>
+<hr>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>折叠展开栏</title>
+    <style>
+        /* 展开栏容器样式 */
+        .accordion {
+            width: 80%;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        /* 标题栏样式 */
+        .accordion-header {
+            background-color: #f5f5f5;
+            padding: 15px;
+            font-weight: bold;
+            cursor: pointer; /* 鼠标变成手型，提示可点击 */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 内容区域样式（默认隐藏） */
+        .accordion-content {
+            padding: 0;
+            height: 0;
+            overflow: hidden;
+            transition: height 0.3s ease; /* 展开/折叠动画 */
+            background-color: #fff;
+        }
+
+        /* 内容显示时的样式 */
+        .accordion-content.active {
+            padding: 15px;
+            height: auto; /* 自动适应内容高度 */
+        }
+
+        /* 箭头图标样式 */
+        .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        /* 展开时箭头旋转 */
+        .arrow.active {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- 展开栏1 -->
+    <div class="accordion">
+        <!-- 标题栏（点击触发） -->
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            共和国所有网站
+            <span class="arrow">▼</span> <!-- 箭头图标 -->
+        </div>
+        <!-- 内容区域（默认隐藏） -->
+        <div class="accordion-content">
+            <a href="https://gong-he-guo-fa-lv.netlify.app/">共和国临时约法</a>
+			<br>
+			 <a href="https://www.bilibili.com/video/BV1GJ411x7h7/?spm_id_from=333.337.search-card.all.click&vd_source=b4354bdbf6c44435ba0e7950a58f867e">共和国意见箱/BUG箱/灵感箱</a>
+            <p style="color:blue">网站持续增设中...</p >
+        </div>
+    </div>
+
+    <!-- 展开栏2 -->
+    <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            共和国人民推荐歌单<strong style="color:gold">(beta)</strong>
+            <span class="arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+            <p><i>我也不知道搞这个干什么,脑抽了可能是(</p ></i>
+			 <a href="https://www.bilibili.com/video/BV1ax411b77i/?spm_id_from=333.337.search-card.all.click">测试内容1</a>
+			 <br>
+			 <i style="color:blue">测试内容2:</i>
+			 <video controls>
+			 <source src="D:\0\10-31\亲爱的你被火葬.mp4" type="video/mp4" width="60%">
+			 您的浏览器不支持视频播放,请更换浏览器</video>
+            <p>实验性内容,后续持续更新或删除</p >
+        </div>
+    </div>
+
+    <script>
+        // 切换展开/折叠的函数
+        function toggleAccordion(header) {
+            // 获取当前展开栏的内容区域和箭头
+            const content = header.nextElementSibling;
+            const arrow = header.querySelector('.arrow');
+            
+            // 切换内容显示/隐藏（添加/移除active类）
+            content.classList.toggle('active');
+            // 切换箭头旋转
+            arrow.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<br>
+<em>本网站与现实无任何直接联系,请勿上升于国际层面
+<br>
+网站创建者:凉乞钞-official</em>
+</body>
+</html>

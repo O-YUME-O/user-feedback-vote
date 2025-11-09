@@ -1,0 +1,214 @@
+/* 全局样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Microsoft Yahei", "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f5f7fa;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #333;
+}
+
+/* 参与投票区块 */
+.vote-call {
+  background: #e6f2ff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.vote-call h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+}
+
+.vote-call h2::before {
+  content: "📢";
+  margin-right: 10px;
+}
+
+.vote-call p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #4a6fa5;
+}
+
+/* 标签筛选器 */
+.tag-filter {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tag-filter label {
+  color: #4a6fa5;
+  font-weight: 500;
+}
+
+.tag-filter select {
+  padding: 6px 10px;
+  border: 1px solid #b8daff;
+  border-radius: 4px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+}
+
+.tag-filter select:focus {
+  outline: none;
+  border-color: #409eff;
+}
+
+/* 按钮样式 */
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 20px;
+  background: #409eff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #66b1ff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(64,158,255,0.3);
+}
+
+/* 投票列表区块 */
+.vote-list {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.vote-list h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+}
+
+.vote-list h2::before {
+  content: "📊";
+  margin-right: 10px;
+}
+
+.vote-list ul {
+  list-style: none;
+}
+
+/* 投票项样式 */
+.vote-item {
+  padding: 15px;
+  border-bottom: 1px solid #f0f5ff;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vote-item:last-child {
+  border-bottom: none;
+}
+
+.vote-item:hover {
+  background: #f0f7ff;
+}
+
+.vote-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.vote-count {
+  min-width: 50px;
+  font-weight: bold;
+  color: #409eff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(64,158,255,0.1);
+}
+
+.vote-title {
+  flex: 1;
+  line-height: 1.5;
+}
+
+/* 标签样式 */
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #fff;
+  text-shadow: 0 0 1px rgba(0,0,0,0.2);
+}
+
+.vote-time {
+  font-size: 13px;
+  color: #889aa4;
+  margin-left: 60px; /* 与票数对齐 */
+}
+
+/* 状态提示样式 */
+.loading, .empty, .error {
+  padding: 30px;
+  text-align: center;
+  color: #889aa4;
+  font-size: 15px;
+}
+
+.error {
+  color: #f56c6c;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .vote-call, .vote-list {
+    padding: 15px;
+  }
+
+  .vote-item {
+    padding: 12px 10px;
+  }
+
+  .vote-time {
+    margin-left: 0;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+
+  .tag-filter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tag-filter select {
+    width: 100%;
+  }
+}
